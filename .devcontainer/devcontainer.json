@@ -1,0 +1,60 @@
+{
+  "name": "spec-kit AI ready container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    // https://containers.dev/features
+		"git": "latest",
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
+      "version": "latest"
+    },    
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"extensions": "connectedk8s,k8s-extension,containerapp",
+			"installBicep": true
+		},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest"
+    },
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.22"
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+       "version": "21"
+    },
+    "ghcr.io/devcontainers/features/dotnet:1": {
+       "version": "8.0"
+    },
+    "ghcr.io/devcontainers/features/rust:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-extra/features/typescript:2": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-azurecli",
+        "ms-vscode.azurecli",
+        "ms-vscode.vscode-bicep"    
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        "python.terminal.activateEnvironment": true
+      }
+    }
+  },
+
+  // Create a project-local venv (avoids system pip writes per PEP 668)
+  "postCreateCommand": "python -m pip install -r ./.devcontainer/requirements.txt",
+
+  "remoteUser": "vscode"
+}

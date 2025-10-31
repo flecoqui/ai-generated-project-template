@@ -1,0 +1,10 @@
+# Ignore common OS and build artifacts
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+*.log
+
+# Ignore IDE configs
+.vscode/
+.idea/
