@@ -187,7 +187,6 @@ You can edit the file [devcontainer.json](/.devcontainer/devcontainer.json) to k
 
 ```json
     "features": {
-        // https://containers.dev/features
         "git": "latest",
         "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
         "version": "latest"
